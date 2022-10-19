@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stacks.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/19 04:53:44 by yde-goes          #+#    #+#             */
+/*   Updated: 2022/10/19 04:54:10 by yde-goes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 t_stack	*create_node(long long nbr)
 {
-    t_stack  *new_node;
+	t_stack	*new_node;
 
-    new_node = ft_calloc(1, sizeof(*new_node));
-    if (!new_node)
-        return (NULL);
-    new_node->nbr = nbr;
-    new_node->next = NULL;
-    return (new_node);
+	new_node = ft_calloc(1, sizeof(*new_node));
+	if (!new_node)
+		return (NULL);
+	new_node->nbr = nbr;
+	new_node->next = NULL;
+	return (new_node);
 }
 
 t_stack	*get_last_nbr(t_stack *lst)
