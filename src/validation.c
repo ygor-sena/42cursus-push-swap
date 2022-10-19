@@ -3,15 +3,18 @@
 static t_bool   is_ordered_stack(t_stack *stack_a);
 static t_bool   is_duplicate_nbr(t_stack *stack_a);
 static int      fill_stack(int argc, char **argv, t_stack *stack_a);
-static t_bool   is_long(long long nbr);
+static int      parse_stack(char *input_nbr, t_stack *stack_a);
 
 t_bool  is_valid_arg(int argc, char **argv, t_stack *stack_a)
 {  
     if (argc == 1 || fill_stack(argc, argv, stack_a))
         return (FALSE);
-    if (stack_size(stack_a) < 2 \
-        || is_ordered_stack(stack_a) \
-        || !is_duplicate_nbr(stack_a))
+    if (is_duplicate_nbr(stack_a))
+    {
+        ft_printf(ERROR_MSG);
+        return (FALSE);
+    }
+    if (is_ordered_stack(stack_a))
         return (FALSE);
     return (TRUE);
 }
@@ -50,45 +53,47 @@ static int  fill_stack(int argc, char **argv, t_stack *stack_a)
     int         param;
     int         index;
     char        **input_nbr;
-    long long   converted;
-    t_stack   *new_node;
 
     param = 1;
     while (param < argc)
     {
         input_nbr = ft_split(argv[param], SPACE_CHR); 
         index = 0;
-        /* THIS CAN BE ANOTHER FUNCTION */
         while (input_nbr[index])
         {
-            converted = ft_atol(input_nbr[index]);
-            if (!is_nondigit(input_nbr[index]) \
-                || is_long(converted))
+            if (parse_stack(input_nbr[index], stack_a))
             {
-                ft_printf(ERROR_MSG);
                 free_split(input_nbr);
-                return (FALSE);
-            }
-            if (!stack_a->nbr)
-                stack_a->nbr = ft_atol(input_nbr[index]);
-            else
-            {
-                new_node = create_node(converted);
-                if (!new_node)
-                    return (FALSE);
-                add_back_nbr(&stack_a, new_node);
-            }
+                return (EXIT_FAILURE);
+            } 
             index++;
         }
         free_split(input_nbr);
         param++;
     }
-    return (TRUE);
+    return (EXIT_SUCCESS);
 }
 
-static t_bool   is_long(long long nbr)
+static int  parse_stack(char *input_nbr, t_stack *stack_a)
 {
-    if (nbr > MAX_INT || nbr < MIN_INT)
+    long long   converted;
+    t_stack     *new_node;
+
+    converted = ft_atol(input_nbr);
+    if (is_nondigit(input_nbr) \
+        || converted > MAX_INT || converted < MIN_INT)
+    {
+        ft_printf(ERROR_MSG);
         return (EXIT_FAILURE);
-    return (EXIT_SUCCESS);
+    }
+    if (!stack_a->nbr)
+        stack_a->nbr = ft_atol(input_nbr);
+    else
+    {
+        new_node = create_node(converted);
+        if (!new_node)
+            return (EXIT_FAILURE);
+        add_back_nbr(&stack_a, new_node);
+    }   
+    return(EXIT_SUCCESS);
 }
