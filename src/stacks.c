@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: ygorgsena <ygorgsena@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 04:53:44 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/10/19 04:54:10 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/10/19 18:36:47 by ygorgsena        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,17 @@ t_stack	*get_last_nbr(t_stack *lst)
 	return (lst);
 }
 
+t_stack	*get_penul_nbr(t_stack *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
+}
+
 void	add_back_nbr(t_stack **lst, t_stack *new)
 {
 	t_stack	*temp;
@@ -48,22 +59,6 @@ void	add_back_nbr(t_stack **lst, t_stack *new)
 	}
 	temp = get_last_nbr(*lst);
 	temp->next = new;
-}
-
-void	stack_cleaning(t_stack **lst)
-{
-	t_stack	*temp_lst;
-
-	if (!lst)
-		return ;
-	temp_lst = *lst;
-	while (temp_lst != NULL)
-	{
-		temp_lst = temp_lst->next;
-		free(*lst);
-		*lst = temp_lst;
-	}
-	*lst = NULL;
 }
 
 int	stack_size(t_stack *lst)

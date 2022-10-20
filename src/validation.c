@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: ygorgsena <ygorgsena@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 04:54:23 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/10/19 04:59:23 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:24:19 by ygorgsena        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static t_bool	is_ordered_stack(t_stack *stack_a);
 static t_bool	is_duplicate_nbr(t_stack *stack_a);
-static int		fill_stack(int argc, char **argv, t_stack *stack_a);
+static int		fill_stack(int argc, char **argv, t_stack **stack_a);
 static int		parse_stack(char *input_nbr, t_stack *stack_a);
 
-t_bool	is_valid_arg(int argc, char **argv, t_stack *stack_a)
+t_bool	is_valid_arg(int argc, char **argv, t_stack **stack_a)
 {
 	if (argc == 1 || fill_stack(argc, argv, stack_a))
 		return (FALSE);
-	if (is_duplicate_nbr(stack_a))
+	if (is_duplicate_nbr(*stack_a))
 	{
 		ft_printf(ERROR_MSG);
 		return (FALSE);
 	}
-	if (is_ordered_stack(stack_a))
+	if (is_ordered_stack(*stack_a))
 		return (FALSE);
 	return (TRUE);
 }
@@ -60,7 +60,7 @@ static t_bool	is_duplicate_nbr(t_stack *stack_a)
 	return (FALSE);
 }
 
-static int	fill_stack(int argc, char **argv, t_stack *stack_a)
+static int	fill_stack(int argc, char **argv, t_stack **stack_a)
 {
 	int		param;
 	int		index;
@@ -73,7 +73,7 @@ static int	fill_stack(int argc, char **argv, t_stack *stack_a)
 		index = 0;
 		while (input_nbr[index])
 		{
-			if (parse_stack(input_nbr[index], stack_a))
+			if (parse_stack(input_nbr[index], *stack_a))
 			{
 				free_split(input_nbr);
 				return (EXIT_FAILURE);

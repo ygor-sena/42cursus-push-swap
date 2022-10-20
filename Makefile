@@ -1,5 +1,5 @@
 NAME		= 		push_swap
-SRC			= 		main.c free.c stacks.c validation.c
+SRC			= 		main.c free.c stacks.c validation.c push.c rotate.c swap.c reverse.c
 
 LIBFT		= 		./libft/libft.a
 SRCS_PATH	= 		src
