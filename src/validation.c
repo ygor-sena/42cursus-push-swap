@@ -6,7 +6,7 @@
 /*   By: ygorgsena <ygorgsena@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 04:54:23 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/10/19 16:24:19 by ygorgsena        ###   ########.fr       */
+/*   Updated: 2022/10/20 12:32:33 by ygorgsena        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 static t_bool	is_ordered_stack(t_stack *stack_a);
 static t_bool	is_duplicate_nbr(t_stack *stack_a);
-static int		fill_stack(int argc, char **argv, t_stack **stack_a);
-static int		parse_stack(char *input_nbr, t_stack *stack_a);
 
-t_bool	is_valid_arg(int argc, char **argv, t_stack **stack_a)
+t_bool	is_valid_arg(t_stack **stack_a)
 {
-	if (argc == 1 || fill_stack(argc, argv, stack_a))
-		return (FALSE);
 	if (is_duplicate_nbr(*stack_a))
 	{
 		ft_printf(ERROR_MSG);
@@ -29,6 +25,22 @@ t_bool	is_valid_arg(int argc, char **argv, t_stack **stack_a)
 	if (is_ordered_stack(*stack_a))
 		return (FALSE);
 	return (TRUE);
+}
+
+t_bool	is_nondigit(char *string)
+{
+	int	index;
+
+	index = 0;
+	while (string[index] != '\0')
+	{
+		if (!ft_isdigit(string[index]) \
+			&& string[index] != SPACE_CHR \
+			&& string[index] != '-')
+			return (TRUE);
+		index++;
+	}
+	return (FALSE);
 }
 
 static t_bool	is_ordered_stack(t_stack *stack_a)
@@ -58,54 +70,4 @@ static t_bool	is_duplicate_nbr(t_stack *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (FALSE);
-}
-
-static int	fill_stack(int argc, char **argv, t_stack **stack_a)
-{
-	int		param;
-	int		index;
-	char	**input_nbr;
-
-	param = 1;
-	while (param < argc)
-	{
-		input_nbr = ft_split(argv[param], SPACE_CHR);
-		index = 0;
-		while (input_nbr[index])
-		{
-			if (parse_stack(input_nbr[index], *stack_a))
-			{
-				free_split(input_nbr);
-				return (EXIT_FAILURE);
-			}
-			index++;
-		}
-		free_split(input_nbr);
-		param++;
-	}
-	return (EXIT_SUCCESS);
-}
-
-static int	parse_stack(char *input_nbr, t_stack *stack_a)
-{
-	long long	converted;
-	t_stack		*new_node;
-
-	converted = ft_atol(input_nbr);
-	if (is_nondigit(input_nbr) \
-		|| converted > MAX_INT || converted < MIN_INT)
-	{
-		ft_printf(ERROR_MSG);
-		return (EXIT_FAILURE);
-	}
-	if (!stack_a->nbr)
-		stack_a->nbr = ft_atol(input_nbr);
-	else
-	{
-		new_node = create_node(converted);
-		if (!new_node)
-			return (EXIT_FAILURE);
-		add_back_nbr(&stack_a, new_node);
-	}
-	return (EXIT_SUCCESS);
 }

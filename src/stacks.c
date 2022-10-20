@@ -6,13 +6,13 @@
 /*   By: ygorgsena <ygorgsena@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 04:53:44 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/10/19 18:36:47 by ygorgsena        ###   ########.fr       */
+/*   Updated: 2022/10/20 12:27:41 by ygorgsena        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack	*create_node(long long nbr)
+t_stack	*create_new_nbr(long long nbr)
 {
 	t_stack	*new_node;
 
