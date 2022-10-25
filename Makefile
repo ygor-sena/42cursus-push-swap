@@ -1,5 +1,5 @@
 NAME		= 		push_swap
-SRC			= 		main.c utils.c stacks.c validation.c push.c rotate.c swap.c reverse.c
+SRC			= 		main.c utils.c stacks.c validation.c push.c rotate.c swap.c reverse.c sort_three.c sort_five.c sort_many.c sort_utils.c
 
 LIBFT		= 		./libft/libft.a
 SRCS_PATH	= 		src
@@ -25,8 +25,8 @@ $(LIBFT):
 					make -C ./libft
 
 run:				$(NAME)
-					valgrind --tool=memcheck --leak-check=yes --show-reachable=yes ./push_swap 1 2 3 4 5
-#--num-callers=20 --track-fds=yes
+					valgrind --tool=memcheck --leak-check=yes --show-reachable=yes ./push_swap 0 9 4 6 1 5 8 10
+#--num-callers=20 --track-fds=yes 3 2 1 5 4
 clean:
 					$(RM) $(OBJS_PATH)
 

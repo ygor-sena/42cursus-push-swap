@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorgsena <ygorgsena@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 16:18:37 by ygorgsena         #+#    #+#             */
-/*   Updated: 2022/10/21 17:49:17 by ygorgsena        ###   ########.fr       */
+/*   Created: 2022/10/21 21:44:21 by ygorgsena         #+#    #+#             */
+/*   Updated: 2022/10/25 11:12:55 by ygorgsena        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,22 @@ void	sort_three(t_stack **stack_a)
 	t_stack	*last_stack;
 
 	last_stack = get_last_nbr(*stack_a);
-	if ((*stack_a)->nbr < (*stack_a)->next->nbr \
-		&& (*stack_a)->nbr < last_stack->nbr \
-		&& (*stack_a)->next->nbr > last_stack->nbr)
+	if ((*stack_a)->index < (*stack_a)->next->index && (*stack_a)->index \
+		< last_stack->index && (*stack_a)->next->index > last_stack->index)
 	{
 		reverse_a(stack_a);
 		swap_a(stack_a);
 	}
-	else if ((*stack_a)->nbr > (*stack_a)->next->nbr \
-		&& (*stack_a)->nbr < last_stack->nbr)
+	else if ((*stack_a)->index > (*stack_a)->next->index \
+		&& (*stack_a)->index < last_stack->index \
+		&& (*stack_a)->next->index < last_stack->index)
 		swap_a(stack_a);
-	else if ((*stack_a)->nbr < (*stack_a)->next->nbr \
-		&& (*stack_a)->nbr > last_stack->nbr \
-		&& (*stack_a)->next->nbr > last_stack->nbr)
+	else if ((*stack_a)->index < (*stack_a)->next->index \
+		&& (*stack_a)->index > last_stack->index \
+		&& (*stack_a)->next->index > last_stack->index)
 		reverse_a(stack_a);
-	else if ((*stack_a)->nbr > (*stack_a)->next->nbr \
-        && (*stack_a)->nbr > last_stack->nbr \
-		&& (*stack_a)->next->nbr > last_stack->nbr)
+	else if ((*stack_a)->index > (*stack_a)->next->index && (*stack_a)->index \
+		> last_stack->index && (*stack_a)->next->index > last_stack->index)
 	{
 		swap_a(stack_a);
 		reverse_a(stack_a);

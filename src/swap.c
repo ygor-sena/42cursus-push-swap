@@ -6,7 +6,7 @@
 /*   By: ygorgsena <ygorgsena@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:17:55 by ygorgsena         #+#    #+#             */
-/*   Updated: 2022/10/19 18:55:12 by ygorgsena        ###   ########.fr       */
+/*   Updated: 2022/10/23 16:49:09 by ygorgsena        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,7 @@ static void	swap(t_stack *stack)
 	tmp = stack->nbr;
 	stack->nbr = stack->next->nbr;
 	stack->next->nbr = tmp;
+	tmp = stack->index;
+	stack->index = stack->next->index;
+	stack->next->index = tmp;
 }
