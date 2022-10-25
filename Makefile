@@ -24,9 +24,9 @@ $(OBJS_PATH)/%.o:	$(SRCS_PATH)/%.c
 $(LIBFT):
 					make -C ./libft
 
-run:				$(NAME)
-					valgrind --tool=memcheck --leak-check=yes --show-reachable=yes ./push_swap 0 9 4 6 1 5 8 10
-#--num-callers=20 --track-fds=yes 3 2 1 5 4
+#run:				$(NAME)
+#					valgrind --tool=memcheck --leak-check=yes --show-reachable=yes ./push_swap
+
 clean:
 					$(RM) $(OBJS_PATH)
 
