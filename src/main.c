@@ -6,20 +6,13 @@
 /*   By: ygorgsena <ygorgsena@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 04:51:13 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/10/25 15:29:33 by ygorgsena        ###   ########.fr       */
+/*   Updated: 2022/10/25 22:39:13 by ygorgsena        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	init_data(t_push_swap *data, int argc, char **argv)
-{	
-	data->stack_a = fill_stack(argc, argv);
-	data->stack_b = NULL;
-	data->size_a = get_stack_size(data->stack_a);
-	data->size_b = get_stack_size(data->stack_b);
-	fill_index_stack(&data->stack_a);
-}
+static void	init_data(t_push_swap *data, int argc, char **argv);
 
 int	main(int argc, char **argv)
 {
@@ -40,4 +33,13 @@ int	main(int argc, char **argv)
 	free_stack(&data.stack_a);
 	free_stack(&data.stack_b);
 	return (EXIT_SUCCESS);
+}
+
+static void	init_data(t_push_swap *data, int argc, char **argv)
+{	
+	data->stack_a = fill_stack(argc, argv);
+	data->stack_b = NULL;
+	data->size_a = get_stack_size(data->stack_a);
+	data->size_b = get_stack_size(data->stack_b);
+	fill_index_stack(&data->stack_a);
 }
