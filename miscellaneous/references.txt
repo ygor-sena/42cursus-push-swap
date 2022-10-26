@@ -1,0 +1,18 @@
+About different algorithms efficiency:
+https://lamfo-unb.github.io/2019/04/21/Sorting-algorithms/
+
+How to implement radix sort:
+https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
+
+https://github.com/LeoFu9487/push_swap_tutorial
+
+https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
+
+How to implement an algorithm to get a 100%:
+https://github.com/VBrazhnik/Push_swap/wiki/Algorithm
+
+A second way to do it:
+https://github.com/mcombeau/push_swap
+
+Visualize algorithms:
+https://www.sortvisualizer.com/oddevensort/
