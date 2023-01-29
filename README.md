@@ -30,9 +30,9 @@ There are two stacks `a` and `b`. At the beginning, stack `a` contains the numbe
 
 ## Project performance
 
-The algorithm implemented was radix sort with bitwise operations to make it possible to work with only two stacks. The table below lists the project's efficiency to sort 100 and 500 random numbers respectively from grade 5 (best performance) to grade 1 (lowest performance).
+The algorithm implemented was radix sort with bitwise operations to make it possible to work with only two stacks. The table below lists the project's efficiency to sort 100 and 500 random numbers respectively from grade 5 (best performance) to grade 1 (worst performance).
 
-| Grade | Stack operations to sort 100 numbers | Stack operations to sort 500 numbers | Project performance for sorting 100 numbers | Project performance for  sorting 500 numbers |
+| Grade | Stack operations to sort 100 numbers | Stack operations to sort 500 numbers | Project performance for sorting 100 numbers | Project performance for sorting 500 numbers |
 |:------|:------|:------|:------|:------|
 | 5 | less than 700 | less than 5500 | - | - |
 | 4 | less than 900 | less than 7000 | - | 6756 |
