@@ -93,7 +93,7 @@ In this example, to sort 500 random numbers with radix sort, the output of the t
   - FEOFILOFF, Paulo. [Algoritmos em C](https://www.ime.usp.br/~pf/algoritmos-livro/downloads/Algoritmos-em-linguagem-C.pdf). 2009.
 - Algorithm efficiency and visualization:
   - [Paula Hemsi's push_swap operations visualizer](https://phemsi-a.itch.io/push-swap) by [phemsi-a](https://github.com/paulahemsi).
-  - [About sorting algorithms efficiency](https://lamfo-unb.github.io/2019/04/21/Sorting-algorithms/) Leonardo Galler and Matteo Kimura
+  - [About sorting algorithms efficiency](https://lamfo-unb.github.io/2019/04/21/Sorting-algorithms/) by Leonardo Galler and Matteo Kimura.
 - Tutorials by other 42's students:
   - [Sort visualizer](https://www.sortvisualizer.com/oddevensort/)
   - [Tutorial for push_swap](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e) by [LeoFu](https://github.com/LeoFu9487/).
