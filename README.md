@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/Status-Completed-brightgreen.svg" alt="Status">
 </p>
 
-## Introduction
+## 📣 Introduction
 
 This project is about sorting data on a stack with a limited set of instructions, using the lowest possible number of actions. It aims to teach students about how to manipulate various types of algorithms and choose the most appropriate solution (out of many) for an optimized data sorting.
 
@@ -28,7 +28,7 @@ There are two stacks `a` and `b`. At the beginning, stack `a` contains the numbe
 | `rrb` | reverse rotate b | Shift down all elements of stack `b` by 1. |
 | `rrr` | reverse rotate both | `rra` and `rrb` at the same time. |
 
-## Project performance
+## 📈 Project performance
 
 The algorithm implemented was radix sort with bitwise operations to make it possible to work with only two stacks. The table below lists the project's efficiency to sort 100 and 500 random numbers respectively from grade 5 (best performance) to grade 1 (worst performance).
 
@@ -39,7 +39,7 @@ The algorithm implemented was radix sort with bitwise operations to make it poss
 | 3 | less than 1100 | less than 8500 | 1025 | - |
 | 2 | less than 1300 | less than 10000 | - | - |
 | 1 | less than 1500 | less than 11500 | - | - |
-## How to compile and run the project
+## ⚒️ How to compile and run the project
 
 
 #### 1) Copy this repository to your local workstation
@@ -84,7 +84,7 @@ After a valid argument is received, the program will start to sort the given num
 
 In this example, to sort 500 random numbers with radix sort, the output of the total stack operations done will be roughly 6756.
 
-## References
+## 📖 References
 
 - General reference books:
 
